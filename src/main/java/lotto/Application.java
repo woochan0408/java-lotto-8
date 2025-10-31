@@ -29,15 +29,24 @@ public class Application {
             lottos.add(new Lotto(lottoNumbers));
         }
 
-        System.out.println("당첨 번호를 입력해 주세요.");
-        String input = Console.readLine();
-        String[] parts = input.split(",");
-        List<Integer> winningNumber = new ArrayList<>();
+        //winningNumber 검증
+        while(true){
+            try {
+                System.out.println("당첨 번호를 입력해 주세요.");
+                String input = Console.readLine();
+                String[] parts = input.split(",");
+                List<Integer> winningNumber = new ArrayList<>();
 
-        for (String part : parts) {
-            winningNumber.add(Integer.parseInt(part.trim()));
+                for (String part : parts) {
+                    winningNumber.add(Integer.parseInt(part.trim()));
+                }
+
+                validateWinningNumber(winningNumber);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
-
     }
     public static void validationAmount(int amount) {
         if(amount < 0) {
@@ -48,6 +57,14 @@ public class Application {
         }
     }
 
-    public static void validateWinningNumber(int winningNumber) {}
+    public static void validateWinningNumber(List<Integer> winningNumber) {
+        List<Integer> validationList = new ArrayList<>();
+        for (int number : winningNumber) {
+            if (validationList.contains(number)) {
+                throw new IllegalArgumentException("겹치는 번호가 있습니다: " + number);
+            }
+            validationList.add(number);
+        }
+    }
 
 }
