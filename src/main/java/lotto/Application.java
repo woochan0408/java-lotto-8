@@ -11,6 +11,7 @@ public class Application {
         int amount;
         List<Lotto> lottos = new ArrayList<>();
 
+        //금액 입력 검증
         while(true){
             try {
                 System.out.println("구입금액을 입력해 주세요.");
@@ -47,6 +48,23 @@ public class Application {
                 System.out.println(e.getMessage());
             }
         }
+
+
+        while(true){
+            try{
+                System.out.println("보너스 번호를 입력해 주세요.");
+                String input = Console.readLine();
+                int bonusNumber = Integer.parseInt(input);
+                validateBonusNumber(bonusNumber);
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
+
+
     }
     public static void validationAmount(int amount) {
         if(amount < 0) {
@@ -64,6 +82,12 @@ public class Application {
                 throw new IllegalArgumentException("겹치는 번호가 있습니다: " + number);
             }
             validationList.add(number);
+        }
+    }
+
+    public static void validateBonusNumber(int bonusNumber) {
+        if(bonusNumber < 1 || bonusNumber > 45) {
+            throw new IllegalArgumentException("1 ~ 45 사이의 숫자를 입력해주세요.");
         }
     }
 
