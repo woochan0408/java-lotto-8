@@ -31,6 +31,7 @@ public class Application {
         }
 
         //winningNumber 검증
+        WinningLotto winningLotto;
         while(true){
             try {
                 System.out.println("당첨 번호를 입력해 주세요.");
@@ -43,13 +44,14 @@ public class Application {
                 }
 
                 validateWinningNumber(winningNumber);
+                winningLotto = new WinningLotto(winningNumber);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
 
-
+        //bonousNumber 입력 및 검증로직 구현
         while(true){
             try{
                 System.out.println("보너스 번호를 입력해 주세요.");
@@ -62,8 +64,12 @@ public class Application {
             }
         }
 
+        LottoChecker lottoChecker = new LottoChecker();
+        for(Lotto lotto : lottos){
 
-
+            Rank rank = lottoChecker.CheckRank(lotto, winningLotto);
+            lotto.setRank(rank);
+        }
 
     }
     public static void validationAmount(int amount) {
@@ -90,5 +96,4 @@ public class Application {
             throw new IllegalArgumentException("1 ~ 45 사이의 숫자를 입력해주세요.");
         }
     }
-
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Lotto {
     private final List<Integer> numbers;
+    private Rank rank;
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -16,6 +17,15 @@ public class Lotto {
         }
     }
 
+     public List<Integer> getNumbers(){
+        return numbers;
+     }
 
+    public void setRank(Rank rank) {
+        this.rank = rank;
+    }
 
+    public Rank getRank() {
+        return rank;
+    }
 }
