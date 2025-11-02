@@ -64,6 +64,7 @@ public class Application {
             }
         }
 
+        //로또 랭크 계산 및 저장
         LottoChecker lottoChecker = new LottoChecker();
         for(Lotto lotto : lottos){
 

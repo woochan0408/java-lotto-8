@@ -3,15 +3,15 @@ package lotto;
 import java.util.List;
 
 public class WinningLotto extends Lotto {
-    private List<Integer> numbers;
     private Integer bonusNumber;
 
     public WinningLotto(List<Integer> numbers) {
         super(numbers);
     }
 
-    public List<Integer> getNumbers() {
-        return numbers;
+    public WinningLotto(List<Integer> numbers, Integer bonusNumber) {
+        super(numbers);
+        this.bonusNumber = bonusNumber;
     }
 
     public Integer getBonusNumber() {
