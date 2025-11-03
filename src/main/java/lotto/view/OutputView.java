@@ -14,7 +14,7 @@ public class OutputView {
         System.out.println();
         System.out.println(lottos.size() + "개를 구매했습니다.");
         for (Lotto lotto : lottos) {
-            List<Integer> numbers = lotto.getNumbers();
+            List<Integer> numbers = new java.util.ArrayList<>(lotto.getNumbers());
             numbers.sort(Integer::compareTo);
             System.out.println(numbers);
         }
