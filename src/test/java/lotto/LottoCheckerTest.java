@@ -19,7 +19,7 @@ class LottoCheckerTest {
         Lotto lotto = new Lotto(List.of(1,2,3,4,5,6));
 
         //when
-        Rank rank = lottoChecker.CheckRank(lotto, winningLotto);
+        Rank rank = lottoChecker.checkRank(lotto, winningLotto);
 
         //then
         assertEquals(Rank.FIRST, rank);
@@ -34,7 +34,7 @@ class LottoCheckerTest {
         Lotto lotto = new Lotto(List.of(1,2,7,4,5,6));
 
         //when
-        Rank rank = lottoChecker.CheckRank(lotto, winningLotto);
+        Rank rank = lottoChecker.checkRank(lotto, winningLotto);
 
         //then
         assertEquals(Rank.SECOND, rank);
@@ -49,7 +49,7 @@ class LottoCheckerTest {
         Lotto lotto = new Lotto(List.of(1,2,8,4,5,6));
 
         //when
-        Rank rank = lottoChecker.CheckRank(lotto, winningLotto);
+        Rank rank = lottoChecker.checkRank(lotto, winningLotto);
 
         //then
         assertEquals(Rank.THIRD, rank);
@@ -64,7 +64,7 @@ class LottoCheckerTest {
         Lotto lotto = new Lotto(List.of(1,2,8,9,5,6));
 
         //when
-        Rank rank = lottoChecker.CheckRank(lotto, winningLotto);
+        Rank rank = lottoChecker.checkRank(lotto, winningLotto);
 
         //then
         assertEquals(Rank.FOURTH, rank);
@@ -79,7 +79,7 @@ class LottoCheckerTest {
         Lotto lotto = new Lotto(List.of(8, 2, 9, 4, 5, 7));
 
         //when
-        Rank rank = lottoChecker.CheckRank(lotto, winningLotto);
+        Rank rank = lottoChecker.checkRank(lotto, winningLotto);
 
         //then
         assertEquals(Rank.FIFTH, rank);
@@ -94,7 +94,7 @@ class LottoCheckerTest {
         Lotto lotto = new Lotto(List.of(7, 8, 9, 10, 11, 12));
 
         //when
-        Rank rank = lottoChecker.CheckRank(lotto, winningLotto);
+        Rank rank = lottoChecker.checkRank(lotto, winningLotto);
 
         //then
         assertEquals(Rank.MISS, rank);

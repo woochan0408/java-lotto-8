@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class LottoChecker {
 
-    public Rank CheckRank(Lotto lotto, WinningLotto winningLotto){
+    public Rank checkRank(Lotto lotto, WinningLotto winningLotto){
         List<Integer> winningLottoNumbers = winningLotto.getNumbers();
         Integer bonusNumber = winningLotto.getBonusNumber();
         int numberHit = 0;
