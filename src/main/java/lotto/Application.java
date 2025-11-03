@@ -23,6 +23,8 @@ public class Application {
                 amount = Integer.parseInt(input);
                 validationAmount(amount);
                 break;
+            } catch (NumberFormatException e) {
+                System.out.println("[ERROR] 유효한 숫자가 아닙니다.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -55,6 +57,8 @@ public class Application {
                 validateWinningNumber(winningNumber);
                 winningLotto = new WinningLotto(winningNumber);
                 break;
+            } catch (NumberFormatException e) {
+                System.out.println("[ERROR] 유효한 숫자가 아닙니다.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -69,6 +73,8 @@ public class Application {
                 validateBonusNumber(bonusNumber, winningLotto.getNumbers());
                 winningLotto.setBonusNumber(bonusNumber); // winningLotto 객체에 보너스 번호 저장
                 break;
+            } catch (NumberFormatException e) {
+                System.out.println("[ERROR] 유효한 숫자가 아닙니다.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
