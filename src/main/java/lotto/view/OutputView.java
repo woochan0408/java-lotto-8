@@ -1,8 +1,10 @@
 package lotto.view;
 
-import lotto.Lotto;
-import lotto.Rank;
+import lotto.domain.Lotto;
+import lotto.domain.Rank;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -22,11 +24,17 @@ public class OutputView {
         System.out.println("\n당첨 통계");
         System.out.println("---");
 
-        System.out.printf("3개 일치 (5,000원) - %d개\n", result.getOrDefault(Rank.FIFTH, 0));
-        System.out.printf("4개 일치 (50,000원) - %d개\n", result.getOrDefault(Rank.FOURTH, 0));
-        System.out.printf("5개 일치 (1,500,000원) - %d개\n", result.getOrDefault(Rank.THIRD, 0));
-        System.out.printf("5개 일치, 보너스 볼 일치 (30,000,000원) - %d개\n", result.getOrDefault(Rank.SECOND, 0));
-        System.out.printf("6개 일치 (2,000,000,000원) - %d개\n", result.getOrDefault(Rank.FIRST, 0));
+        List<Rank> ranks = Arrays.asList(Rank.values());
+        Collections.reverse(ranks);
+
+        for (Rank rank : ranks) {
+            if (rank != Rank.MISS) {
+                System.out.printf("%s (%,d원) - %d개\n",
+                        rank.getDescription(),
+                        rank.getPrize(),
+                        result.getOrDefault(rank, 0));
+            }
+        }
 
         System.out.printf("총 수익률은 %.1f%%입니다.\n", rateOfReturn);
     }
